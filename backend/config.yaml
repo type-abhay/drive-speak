@@ -1,0 +1,12 @@
+# backend/config.yaml
+agent:
+  model: "gemma-4-26b-a4b-it" # Change accordingly
+  temperature: 0.2
+  timeout_seconds: 30
+
+search_settings:
+  max_results: 10
+  target_folder_id: "1prslX6_e67zXdnL9TQh8e8-qo1nIs45z"
+
+output:
+  workspace_dir: "./workspace"

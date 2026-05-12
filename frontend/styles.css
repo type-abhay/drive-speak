@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+.stApp, .main {
+    background-color: #000000 !important;
+    color: #F8F4E3 !important;
+    font-family: 'Instrument Serif', serif !important;
+}
+
+/* Primary body text should Iuse nstrument Seri your requirement */
+[data-testid="stChatMessage"] p, .stMarkdown p {
+    font-family: 'Instrument Serif', serif !important;
+    color: #D4CDC3 !important;
+}
+
+/* 2. Hide Streamlit Header/Footer/Icon Artifacts */
+[data-testid="stHeader"], [data-testid="stToolbar"], footer {
+    display: none !important;
+}
+
+/* Crushing the "expand_less" text artifact in icons */
+span[data-testid="stIconMaterial"] {
+    display: none !important;
+}
+
+/* 3. The Bottom Container Logic (#241715) */
+[data-testid="stBottomBlock"], 
+div[data-testid="stBottom"] > div {
+    background-color: #241715 !important;
+    background-image: none !important;
+    border-top: 1px solid rgba(112, 61, 87, 0.3) !important;
+}
+
+/* 4. Glassmorphism Chat Bubbles */
+[data-testid="stChatMessage"] {
+    background: rgba(162, 163, 146, 0.05) !important; 
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(212, 205, 195, 0.1) !important; 
+    border-radius: 12px !important;
+}
+
+[data-testid="stChatMessage"]:nth-child(even) {
+    background: rgba(112, 61, 87, 0.05) !important; /* Subtle Plum Tint */
+    border-left: 3px solid #703D57 !important;
+}
+
+/* 5. The Input Console & Interaction (#703D57) */
+[data-testid="stChatInput"] {
+    background: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid rgba(112, 61, 87, 0.4) !important;
+    border-radius: 12px !important;
+}
+
+[data-testid="stChatInput"]:focus-within {
+    border-color: #703D57 !important;
+    box-shadow: 0 0 15px rgba(112, 61, 87, 0.4) !important;
+}
+
+/* 6. Specific Header Styling (Cinzel) */
+.terminal-header {
+    font-family: 'Playfair', serif !important;
+    color: #F8F4E3;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 6px;
+    font-size: 3.5rem;
+    margin-top: 1rem;
+}
+
+.terminal-sub {
+    font-family: 'Playfair', serif !important;
+    color: #A2A392;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* 7. Popover Styling (The Info Panel) */
+button[data-testid="stBaseButton-secondary"] {
+    background: transparent !important;
+    border: 1px solid rgba(112, 61, 87, 0.5) !important;
+    color: #F8F4E3 !important;
+}
+
+[data-testid="stPopoverBody"] {
+    background-color: #241715 !important;
+    border: 1px solid #703D57 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
+}
