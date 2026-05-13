@@ -1,4 +1,7 @@
-# Drive-Claw: Google Drive Discovery Terminal
+<a href="https://drive-claw-terminal.onrender.com/"><img alt="Banner" src="assets/Repo-small.png"/></a>
+
+| <img alt="icon" src="assets/icon-512.png"/> | # Drive-Claw: Google Drive Discovery Terminal |
+|:- |:-|
 
 [**Drive-Claw**](https://drive-claw-terminal.onrender.com/) is a conversational AI agent engineered to bridge the gap between human intent and the structured chaos of your google drive. Built as a specialized "librarian" for Google Drive, it is an upgrade from simple keyword matching by translating natural language into high-precision API queries.
 
