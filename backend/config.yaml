@@ -1,6 +1,5 @@
-# backend/config.yaml
 agent:
-  model: "gemma-4-26b-a4b-it" # Change accordingly
+  model: "gemma-4-26b-a4b-it" # up to mate :) I'm freeloading.
   temperature: 0.2
   timeout_seconds: 30
 

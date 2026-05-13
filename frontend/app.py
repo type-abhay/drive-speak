@@ -2,8 +2,8 @@ import streamlit as st
 from api_client import send_query_to_backend
 
 st.set_page_config(
-    page_title="Drive-Claw Terminal", 
-    page_icon="🦅", 
+    page_title="DriveClaw Terminal", 
+    page_icon="assets/logo.png",
     layout="centered"
 )
 
@@ -14,17 +14,20 @@ def load_css():
 load_css()
 
 # --- Information Panel (Top Right) ---
-# We use columns to align the info trigger
 nav_left, nav_right = st.columns([0.9, 0.1])
 with nav_right:
-    # We use a simple emoji label to avoid Material Icon font issues
-    with st.popover("ℹ️", help="System Architecture"):
-        st.markdown("### 🦅 Drive-Claw Core")
-        st.markdown("*Authorized personnel only.*")
+    with st.popover(":material/info:", help="Disclaimer"):
+        st.markdown("###  Drive-Claw Disclaimers")
+        st.markdown("<div class='system-warning'>" 
+        "Please be mindful while testing; <br>"
+        "running on a <b>FREE GEMINI API KEY</b>."
+        "</div>",unsafe_allow_html=True)
+        st.markdown("<div class='system-warning'>"
+        "Running of <b>Render's Free Tier</b> and free instances  after 15 minutes of inactivity, meaning the <b>very first request</b><br>"
+        "<b> after a pause</b> will take about <b>40–50s</b> to wake the server up."
+        "</div>",unsafe_allow_html=True)
         st.markdown("---")
-        # MISSION COMPLIANCE: Include GitHub link [cite: 20]
-        st.markdown("🔗 [GitHub Repository](https://github.com/your-username/drive-claw)")
-        st.markdown("🌐 [Deployment Terminal](https://drive-claw.render.com)")
+        st.markdown("<div class='system-warning'><b><a href='https://github.com/type-abhay/drive-speak/'>Github</a></b></div>",unsafe_allow_html=True)
 
 # --- Header ---
 st.markdown("<h1 class='terminal-header'>Drive-Claw</h1>", unsafe_allow_html=True)
@@ -36,24 +39,23 @@ if "messages" not in st.session_state:
         {"role": "assistant", "content": "System online. What data shall the Drive-Claw retrieve today? 🌌"}
     ]
 
-# --- Chat Interface [cite: 3, 7] ---
+# start
+FAVICON_PATH = "assets/logo.png"
 for message in st.session_state.messages:
-    # MISSION COMPLIANCE: Conversational AI interface [cite: 2, 3]
-    avatar_icon = "🦅" if message["role"] == "assistant" else "👤"
-    with st.chat_message(message["role"], avatar=avatar_icon):
+    avatar_path = FAVICON_PATH if message["role"] == "assistant" else "👤"
+    with st.chat_message(message["role"], avatar=avatar_path):
         st.markdown(message["content"])
 
 # --- Intent Input ---
 if prompt := st.chat_input("Enter search parameters..."):
-    # Store user message [cite: 3]
+    # Store user message
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user", avatar="👤"):
         st.markdown(prompt)
 
-    # Process and Respond [cite: 3, 15]
-    with st.chat_message("assistant", avatar="🦅"):
+    # Process and Respond
+    with st.chat_message("assistant", avatar=FAVICON_PATH):
         with st.spinner("Executing discovery protocol..."):
-            # MISSION COMPLIANCE: Execute accurate queries [cite: 3, 14, 15]
             agent_response = send_query_to_backend(prompt)
             
         st.markdown(agent_response)

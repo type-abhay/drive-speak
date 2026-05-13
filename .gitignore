@@ -2,3 +2,6 @@ tailortalk-aiagent-8f04c9245e55.json
 .env
 __pycache__/
 venv/
+backend/test/
+backend/.env
+frontend/.env

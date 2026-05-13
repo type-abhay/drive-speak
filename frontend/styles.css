@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 
 .stApp, .main {
     background-color: #000000 !important;
@@ -7,7 +8,7 @@
     font-family: 'Instrument Serif', serif !important;
 }
 
-/* Primary body text should Iuse nstrument Seri your requirement */
+/* Primary body text */
 [data-testid="stChatMessage"] p, .stMarkdown p {
     font-family: 'Instrument Serif', serif !important;
     color: #D4CDC3 !important;
@@ -18,12 +19,11 @@
     display: none !important;
 }
 
-/* Crushing the "expand_less" text artifact in icons */
 span[data-testid="stIconMaterial"] {
     display: none !important;
 }
 
-/* 3. The Bottom Container Logic (#241715) */
+/* 3. The Bottom Container (#241715) */
 [data-testid="stBottomBlock"], 
 div[data-testid="stBottom"] > div {
     background-color: #241715 !important;
@@ -40,7 +40,7 @@ div[data-testid="stBottom"] > div {
 }
 
 [data-testid="stChatMessage"]:nth-child(even) {
-    background: rgba(112, 61, 87, 0.05) !important; /* Subtle Plum Tint */
+    background: rgba(112, 61, 87, 0.05) !important;
     border-left: 3px solid #703D57 !important;
 }
 
@@ -56,19 +56,19 @@ div[data-testid="stBottom"] > div {
     box-shadow: 0 0 15px rgba(112, 61, 87, 0.4) !important;
 }
 
-/* 6. Specific Header Styling (Cinzel) */
 .terminal-header {
-    font-family: 'Playfair', serif !important;
+    font-family: "Racing Sans One", sans-serif !important;
     color: #F8F4E3;
     text-align: center;
     font-weight: 700;
+    font-style: normal;
     letter-spacing: 6px;
-    font-size: 3.5rem;
-    margin-top: 1rem;
+    font-size: 5.5rem;
+    margin-top: 0.25rem;
 }
 
 .terminal-sub {
-    font-family: 'Playfair', serif !important;
+    font-family: 'Instrument Serif', serif !important;
     color: #A2A392;
     text-align: center;
     font-size: 0.8rem;
@@ -88,4 +88,83 @@ button[data-testid="stBaseButton-secondary"] {
     border: 1px solid #703D57 !important;
     border-radius: 10px !important;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
+}
+
+/* Target the Material Icon inside the popover button */
+span[data-testid="stIconMaterial"] {
+    color: #703D57 !important; /* Your Plum/Magenta accent */
+    font-size: 1.2rem !important;
+    display: inline-block !important; /* Re-enable it now that we're using it correctly */
+}
+
+/* Ensure the button itself stays clean */
+button[data-testid="stBaseButton-secondary"] {
+    border: 1px solid rgba(112, 61, 87, 0.3) !important;
+    background: transparent !important;
+}
+
+/* 1. Fix the Popover Padding & Content Spacing */
+[data-testid="stPopoverBody"] > div {
+    padding: 2rem !important; /* Forces the inner box to have space */
+    background-color: #241715 !important;
+}
+
+/* 2. Style the Content inside the Popover */
+[data-testid="stPopoverBody"] h3 {
+    font-family: 'Instrument Serif', serif !important;
+    color: #F8F4E3 !important;
+    margin-bottom: 1rem !important;
+    border-bottom: 1px solid rgba(112, 61, 87, 0.4);
+    padding-bottom: 0.5rem;
+}
+
+[data-testid="stPopoverBody"] p {
+    font-family: 'Playfair', serif !important;
+    font-style: italic;
+    color: #9A998C !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* 3. Refine the (i) Icon and its Trigger Button */
+span[data-testid="stIconMaterial"] {
+    color: #703D57 !important; /* Pure Magenta/Plum */
+    font-size: 1.4rem !important;
+    margin-right: 5px !important;
+}
+
+/* Fix the trigger button appearance */
+button[data-testid="stBaseButton-secondary"] {
+    background: rgba(112, 61, 87, 0.1) !important;
+    border: 1px solid rgba(112, 61, 87, 0.5) !important;
+    border-radius: 8px !important;
+    padding: 5px 15px !important;
+    transition: all 0.3s ease;
+}
+
+button[data-testid="stBaseButton-secondary"]:hover {
+    border-color: #703D57 !important;
+    background: rgba(112, 61, 87, 0.2) !important;
+    box-shadow: 0 0 10px rgba(112, 61, 87, 0.3);
+}
+
+/* Fix the pesky 'expand_less' or down-arrow from clashing */
+[data-testid="stPopover"] svg {
+    fill: #703D57 !important;
+}
+.system-warning {
+    font-family: 'Playfair', serif !important;
+    font-size: 1rem !important;
+    color: #F8F4E3 !important; /* Muted grey */
+    text-align: center;
+    max-width: 400px; /* Constrains the width so it wraps */
+    margin: 20px auto 10px auto !important; /* Centers the box */
+    padding: 10px !important;
+    border: 1px solid rgba(112, 61, 87, 0.2); /* Subtle plum border */
+    border-radius: 8px;
+    background: rgba(36, 23, 21, 0.5); /* Matching the bottom block */
+    line-height: 1.4;
+}
+
+.system-warning b {
+    color: #d490b3 !important; /* Highlights the API key part in plum */
 }
