@@ -22,6 +22,8 @@ class Settings:
         # 3. Smart Flattening (Environment Overrides YAML)
         self.MODEL_NAME = self.yaml_config['agent']['model']
         self.TIMEOUT = self.yaml_config['agent']['timeout_seconds']
+
+        self.ALLOWED_ORIGINS = [os.getenv("FRONTEND_URL", "*")]
         
         # Priority: Env Variable > config.yaml
         env_folder_id = os.getenv("DRIVE_FOLDER_ID")
