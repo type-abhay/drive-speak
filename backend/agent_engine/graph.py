@@ -10,6 +10,7 @@ from datetime import datetime
 # 1. Setup the LLM dynamically using the SSOT
 llm = ChatGoogleGenerativeAI(
     model=settings.MODEL_NAME, 
+    api_key=settings.GOOGLE_API_KEY, # 🚀 THE MISSING LINK: Pass the key explicitly
     temperature=settings.yaml_config['agent']['temperature'],
     timeout=settings.TIMEOUT
 )
