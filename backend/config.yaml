@@ -5,7 +5,7 @@ agent:
 
 search_settings:
   max_results: 10
-  target_folder_id: "1prslX6_e67zXdnL9TQh8e8-qo1nIs45z"
+  target_folder_id: "securedi-t"
 
 output:
   workspace_dir: "./workspace"
