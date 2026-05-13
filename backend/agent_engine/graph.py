@@ -10,11 +10,11 @@ from datetime import datetime
 # 1. Setup the LLM dynamically using the SSOT
 llm = ChatGoogleGenerativeAI(
     model=settings.MODEL_NAME, 
-    api_key=settings.GOOGLE_API_KEY, # Production Hitch, resolve attempt 1
     temperature=settings.yaml_config['agent']['temperature'],
     timeout=settings.TIMEOUT
 )
 llm_with_tools = llm.bind_tools([drive_search_tool])
+
 # 2. Define the "Thinking" node
 def call_model(state: AgentState):
     current_date = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
